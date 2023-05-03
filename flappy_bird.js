@@ -5,6 +5,9 @@ const ctx = canvas.getContext('2d');
 let img = new Image();
 img.src = 'image.png';
 
+let ter_img = new Image();
+ter_img.src = 'ter.png';
+
 let zam_sound = new Audio("zam.mpeg");
 zam_sound.preload = "auto";
 zam_sound.load()
@@ -123,9 +126,9 @@ function draw() {
   drawPipes();
 
   if (gameOver) {
-    ctx.font = '48px Arial';
-    ctx.fillStyle = 'black';
-    ctx.fillText('Bunlar Terörist', canvas.width / 2 - 150, canvas.height / 2);
+    ctx.drawImage(ter_img, canvas.width / 2 - 100, canvas.height / 2 - 100, 200, 200);
+    ctx.fill();
+    ctx.stroke();
   }
 }
 
