@@ -55,10 +55,10 @@ class Bird {
 class Pipe {
   constructor() {
     this.topHeight = Math.random() * (canvas.height * 0.6) + (canvas.height * 0.1);
-    this.bottomHeight = canvas.height - this.topHeight - 100;
+    this.bottomHeight = canvas.height - this.topHeight - 150;
     this.x = canvas.width;
     this.width = 50;
-    this.speed = 2;
+    this.speed = 4;
   }
 
   draw() {
@@ -126,7 +126,7 @@ function draw() {
   drawPipes();
 
   if (gameOver) {
-    ctx.drawImage(ter_img, canvas.width / 2 - 100, canvas.height / 2 - 100, 200, 200);
+    ctx.drawImage(ter_img, canvas.width / 2 - 385*0.75, canvas.height / 2 - 216*0.75, 384*1.5, 216*1.5);
     ctx.fill();
     ctx.stroke();
   }
@@ -168,6 +168,6 @@ canvas.addEventListener('click', (_) => {
     zam_sound.play();
   }
 });
-
+addPipe()
 setInterval(addPipe, 2000); // Add a new pipe every 2 seconds
 loop();
