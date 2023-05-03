@@ -166,7 +166,6 @@ canvas.addEventListener('click', (_) => {
     resetGame();
     ter_sound.play();
   } else {
-    drawText();
     bird.flap();
     zam_sound.play();
   }
