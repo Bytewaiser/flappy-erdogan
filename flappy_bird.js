@@ -12,9 +12,9 @@ let zam_sound = new Audio("zam.wav");
 zam_sound.preload = "auto";
 zam_sound.load()
 
-let ter_sound = new Audio("ter.wav");
-ter_sound.preload = "auto";
-ter_sound.load()
+// let ter_sound = new Audio("ter.wav");
+// ter_sound.preload = "auto";
+// ter_sound.load()
 
 class Bird {
   constructor() {
@@ -164,7 +164,7 @@ function resetGame() {
 canvas.addEventListener('click', (_) => {
   if (gameOver) {
     resetGame();
-    ter_sound.play();
+    // ter_sound.play();
   } else {
     bird.flap();
     zam_sound.play();
