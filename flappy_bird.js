@@ -5,6 +5,17 @@ const ctx = canvas.getContext('2d');
 let img = new Image();
 img.src = 'image.png';
 
+let zam_img = new Image();
+zam_img.src = 'zam.png';
+
+let zam_sound = new Audio("zam.wav");
+zam_sound.preload = "auto";
+zam_sound.load()
+
+let ter_sound = new Audio("ter.wav");
+ter_sound.preload = "auto";
+ter_sound.load()
+
 class Bird {
   constructor() {
     this.x = canvas.width / 4;
@@ -12,14 +23,13 @@ class Bird {
     this.radius = 10;
     this.velocity = 0;
     this.gravity = 0.2;
-    this.lift = -3;
+    this.lift = -4.5;
   }
 
   draw() {
     ctx.beginPath();
 
-    ctx.drawImage(img, this.x, this.y, 50, 50);
-    // ctx.arc(,  2 * Math.PI);
+    ctx.drawImage(img, this.x, this.y);
     ctx.fill();
     ctx.stroke();
   }
@@ -72,7 +82,7 @@ class Pipe {
 }
 
 function checkCollision(bird, pipe) {
-  const birdTop = bird.y - bird.radius;
+  const birdTop = bird.y - bird.radius + 10;
   const birdBottom = bird.y + bird.radius;
   const birdLeft = bird.x - bird.radius;
   const birdRight = bird.x + bird.radius;
@@ -120,7 +130,7 @@ function draw() {
   if (gameOver) {
     ctx.font = '48px Arial';
     ctx.fillStyle = 'black';
-    ctx.fillText('Game Over', canvas.width / 2 - 100, canvas.height / 2);
+    ctx.fillText('Bunlar Terörist', canvas.width / 2 - 150, canvas.height / 2);
   }
 }
 
@@ -151,11 +161,14 @@ function resetGame() {
   gameOver = false;
 }
 
-canvas.addEventListener('click', () => {
+canvas.addEventListener('click', (_) => {
   if (gameOver) {
     resetGame();
+    ter_sound.play();
   } else {
+    drawText();
     bird.flap();
+    zam_sound.play();
   }
 });
 
