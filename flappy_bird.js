@@ -2,6 +2,9 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+let img = new Image();
+img.src = 'image.png';
+
 class Bird {
   constructor() {
     this.x = canvas.width / 4;
@@ -14,8 +17,9 @@ class Bird {
 
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = 'yellow';
+
+    ctx.drawImage(img, this.x, this.y, 50, 50);
+    // ctx.arc(,  2 * Math.PI);
     ctx.fill();
     ctx.stroke();
   }
