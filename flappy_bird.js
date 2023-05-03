@@ -5,10 +5,7 @@ const ctx = canvas.getContext('2d');
 let img = new Image();
 img.src = 'image.png';
 
-let zam_img = new Image();
-zam_img.src = 'zam.png';
-
-let zam_sound = new Audio("zam.wav");
+let zam_sound = new Audio("zam.mpeg");
 zam_sound.preload = "auto";
 zam_sound.load()
 
@@ -27,8 +24,6 @@ class Bird {
   }
 
   draw() {
-    ctx.beginPath();
-
     ctx.drawImage(img, this.x, this.y);
     ctx.fill();
     ctx.stroke();
